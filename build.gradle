@@ -1,0 +1,15 @@
+plugins {
+    id 'java' // 모든 모듈에서 사용할 기본 플러그인
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}

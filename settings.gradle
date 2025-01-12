@@ -1,0 +1,5 @@
+rootProject.name = 'reading-journal'
+include('refactoring2nd')
+include('clean-code')
+include 'refactoring2nd'
+
