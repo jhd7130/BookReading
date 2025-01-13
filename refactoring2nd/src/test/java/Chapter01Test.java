@@ -17,11 +17,11 @@ public class Chapter01Test {
   void writingMethodName() throws Exception {
     // Arrange
     Map<String, Play> playsMap = mapper.readValue(
-        new File("/Users/jeongheedoo/Desktop/study/reading-journal/refactoring2nd/src/test/java/plays.json"),
+        new File("./plays.json"),
         mapper.getTypeFactory().constructMapType(Map.class, String.class, Play.class)
     );
     Plays plays = new Plays(playsMap);
-    Invoice invoice = mapper.readValue(new File("/Users/jeongheedoo/Desktop/study/reading-journal/refactoring2nd/src/test/java/invoice.json"), Invoice.class);
+    Invoice invoice = mapper.readValue(new File("./invoice.json"), Invoice.class);
 
     // Act
     Statment statment = new Statment();
