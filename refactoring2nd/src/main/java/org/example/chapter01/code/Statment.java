@@ -6,20 +6,18 @@ public class Statment {
     int volumeCredit = 0;
     StringBuilder result = new StringBuilder(String.format("청구내역 (고객명: %s)\n", invoice.getCustomer()));
     for (Performance performance : invoice.getPerformances()) {
-
-      int thisAmount = amountFor(performance, plays);
-
       volumeCredit = volumeCreditFor(plays, performance);
 
-      // 청구 내역을 출력한다.
-      result.append(String.format("%s: $%d %d석\n",playFor(plays, performance).getName(), thisAmount / 100, performance.getAudience()));
-      totalAmount += thisAmount;
+      result.append(String.format("%s: $%d %d석\n",playFor(plays, performance).getName(), amountFor(performance, plays) / 100, performance.getAudience()));
+      totalAmount += amountFor(performance, plays);
     }
 
     result.append(String.format("총액: $%d\n",totalAmount / 100));
     result.append(String.format("적립 포인트: %d점", volumeCredit));
     return result.toString();
   }
+
+
 
   private int volumeCreditFor(Plays plays, Performance performance) {
     int result = 0;
