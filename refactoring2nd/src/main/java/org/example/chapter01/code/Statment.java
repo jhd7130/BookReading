@@ -3,13 +3,16 @@ package org.example.chapter01.code;
 public class Statment {
   public String statement(Invoice invoice, Plays plays) throws Exception {
     int totalAmount = 0;
-    int volumeCredit = 0;
+
     StringBuilder result = new StringBuilder(String.format("청구내역 (고객명: %s)\n", invoice.getCustomer()));
     for (Performance performance : invoice.getPerformances()) {
-      volumeCredit = volumeCreditFor(plays, performance);
-
       result.append(String.format("%s: $%d %d석\n",playFor(plays, performance).getName(), amountFor(performance, plays) / 100, performance.getAudience()));
       totalAmount += amountFor(performance, plays);
+    }
+
+    int volumeCredit = 0;
+    for (Performance performance : invoice.getPerformances()) {
+      volumeCredit = volumeCreditFor(plays, performance);
     }
 
     result.append(String.format("총액: $%d\n",totalAmount / 100));
