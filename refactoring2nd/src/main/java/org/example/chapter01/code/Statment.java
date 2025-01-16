@@ -10,16 +10,20 @@ public class Statment {
       totalAmount += amountFor(performance, plays);
     }
 
-    int volumeCredit = 0;
-    for (Performance performance : invoice.getPerformances()) {
-      volumeCredit = volumeCreditFor(plays, performance);
-    }
+    int volumeCredit = volumeCreditFor(invoice, plays);
 
     result.append(String.format("총액: $%d\n",totalAmount / 100));
     result.append(String.format("적립 포인트: %d점", volumeCredit));
     return result.toString();
   }
 
+  private int volumeCreditFor(Invoice invoice, Plays plays) {
+    int volumeCredit = 0;
+    for (Performance performance : invoice.getPerformances()) {
+      volumeCredit = volumeCreditFor(plays, performance);
+    }
+    return volumeCredit;
+  }
 
 
   private int volumeCreditFor(Plays plays, Performance performance) {
