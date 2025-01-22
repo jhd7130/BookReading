@@ -39,7 +39,7 @@ public class StatementData {
     public Integer totalVolumeCredits() {
         int volumeCredit = 0;
         for (Performance performance : invoice.getPerformances()) {
-            volumeCredit = volumeCreditFor(plays, performance);
+            volumeCredit = volumeCreditFor(performance);
         }
         return volumeCredit;
     }
