@@ -17,14 +17,6 @@ public class Statment {
     return result.toString();
   }
 
-  private int totalAmount(Invoice invoice, Plays plays) throws Exception {
-    int totalAmount = 0;
-    for (Performance performance : invoice.getPerformances()) {
-      totalAmount += amountFor(performance, plays);
-    }
-    return totalAmount;
-  }
-
   private int totalVolumeCreditFor(Invoice invoice, Plays plays) {
     int volumeCredit = 0;
     for (Performance performance : invoice.getPerformances()) {
