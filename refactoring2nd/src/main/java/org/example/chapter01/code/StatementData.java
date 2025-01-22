@@ -44,7 +44,7 @@ public class StatementData {
         return volumeCredit;
     }
 
-    private int volumeCreditFor(Plays plays, Performance performance) {
+    private int volumeCreditFor(Performance performance) {
         int result = 0;
         // 포인트를 적립한다.
         result += Math.max(performance.getAudience() - 30, 0);
