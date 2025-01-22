@@ -16,30 +16,4 @@ public class Statment {
     result.append(String.format("적립 포인트: %d점", statmentData.totalVolumeCreditFor()));
     return result.toString();
   }
-
-  private Play playFor(Plays plays, Performance performance) {
-    return plays.get(performance);
-  }
-
-  private int amountFor(Performance performance, Plays plays) throws Exception {
-    int result = 0;
-    switch (playFor(plays, performance).getType()) {
-      case TRAGEDY:
-        result = 40000;
-        if (performance.getAudience() > 30) {
-          result += 1000 * (performance.getAudience() - 30);
-        }
-        break;
-      case COMEDY:
-        result = 30000;
-        if (performance.getAudience() > 20) {
-          result += 10000 + 500 * (performance.getAudience() - 20);
-        }
-        result += 300 * performance.getAudience();
-        break;
-      default:
-        throw new Exception("알 수 없는 장르");
-    }
-    return result;
-  }
 }
