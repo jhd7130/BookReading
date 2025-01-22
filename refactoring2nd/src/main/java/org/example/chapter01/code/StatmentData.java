@@ -1,5 +1,7 @@
 package org.example.chapter01.code;
 
+import java.util.List;
+
 public class StatmentData {
     private final Invoice invoice;
     private final Plays plays;
@@ -13,4 +15,12 @@ public class StatmentData {
         return invoice.getCustomer();
     }
 
+    public List<Performance> getPerformances() {
+        return invoice.getPerformances();
+    }
+
+
+    public Invoice getInvoice() {
+        return this.invoice;
+    }
 }
