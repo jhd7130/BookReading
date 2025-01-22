@@ -12,7 +12,7 @@ public class Statment {
       result.append(String.format("%s: $%d %d석\n",statmentData.playFor(performance).getName(), statmentData.amountFor(performance) / 100, performance.getAudience()));
     }
 
-    result.append(String.format("총액: $%d\n", totalAmount(statmentData.getInvoice(), plays) / 100));
+    result.append(String.format("총액: $%d\n", statmentData.totalAmount() / 100));
     result.append(String.format("적립 포인트: %d점", totalVolumeCreditFor(statmentData.getInvoice(), plays)));
     return result.toString();
   }

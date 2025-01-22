@@ -28,6 +28,14 @@ public class StatmentData {
         return plays.get(performance);
     }
 
+    public Integer totalAmount() throws Exception {
+        int totalAmount = 0;
+        for (Performance performance : invoice.getPerformances()) {
+            totalAmount += this.amountFor(performance);
+        }
+        return totalAmount;
+    }
+
     public Integer amountFor(Performance performance) throws Exception {
         int result = 0;
         switch (this.playFor(performance).getType()) {
