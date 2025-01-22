@@ -13,20 +13,20 @@ public class Statment {
     }
 
     result.append(String.format("총액: $%d\n", statmentData.totalAmount() / 100));
-    result.append(String.format("적립 포인트: %d점", totalVolumeCreditFor(statmentData.getInvoice(), plays)));
+    result.append(String.format("적립 포인트: %d점", statmentData.totalVolumeCreditFor()));
     return result.toString();
   }
 
   private int totalVolumeCreditFor(Invoice invoice, Plays plays) {
     int volumeCredit = 0;
     for (Performance performance : invoice.getPerformances()) {
-      volumeCredit = totalVolumeCreditFor(plays, performance);
+      volumeCredit = volumeCreditFor(plays, performance);
     }
     return volumeCredit;
   }
 
 
-  private int totalVolumeCreditFor(Plays plays, Performance performance) {
+  private int volumeCreditFor(Plays plays, Performance performance) {
     int result = 0;
     // 포인트를 적립한다.
     result += Math.max(performance.getAudience() - 30, 0);
