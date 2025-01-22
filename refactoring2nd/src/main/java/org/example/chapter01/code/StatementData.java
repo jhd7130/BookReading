@@ -2,11 +2,11 @@ package org.example.chapter01.code;
 
 import java.util.List;
 
-public class StatmentData {
+public class StatementData {
     private final Invoice invoice;
     private final Plays plays;
 
-    public StatmentData(Invoice invoice, Plays plays) {
+    public StatementData(Invoice invoice, Plays plays) {
         this.invoice = invoice;
         this.plays = plays;
     }
@@ -36,7 +36,7 @@ public class StatmentData {
         return totalAmount;
     }
 
-    public Integer totalVolumeCreditFor() {
+    public Integer totalVolumeCredits() {
         int volumeCredit = 0;
         for (Performance performance : invoice.getPerformances()) {
             volumeCredit = volumeCreditFor(plays, performance);
